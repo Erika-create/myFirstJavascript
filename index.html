@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 </DOCTYPE><html>
     <head>
-        <title>Dice</title>
+        <title>JavaScript</title>
         <script>
             const dice=
-            `******
-        * * * *
-        *  *  *
-        * * * *
-        ******`
+`******
+* * * *
+*  *  *
+* * * *
+*******`
+
+        function add(){
+            let n1=document.getElementById("num1").value;
+            let n2=document.getElementById("num2").value;
+            let ans=Number(n1)+Number(n2);
+            document.getElementById("addthingy").innerHTML=ans;
+            console.log(ans);
+        }
+
+                function updateSum() {
+                    let n1 = document.getElementById("num1").value;
+                    let n2 = document.getElementById("num2").value;
+                // Default to 0 if empty
+                let sum = Number(n1 || 0) + Number(n2 || 0);
+                document.getElementById("answer").textContent = sum;
+                }
+                // Listen for typing in both inputs
+                document.getElementById("num1").addEventListener("input", updateSum)
+                document.getElementById("num2").addEventListener("input", updateSum)
         </script>
     </head>
     <body>
         <h1>Show dice</h1>
         <button type="button" onclick="document.getElementById('dice').innerHTML = dice">Click me show dice.</button>
         <pre id="dice"></pre>
+
+        <h1>Add numbers</h1>
+        <input type="number" id="num1"></input><br>
+        <input type="text" id="num2"></input><br>
+        <button type="button" onclick="add()">add things.</button>
+        <div id="addthingy"></div>
+
+        <h1>Portfolio</h1>
     </body>
 </html>
