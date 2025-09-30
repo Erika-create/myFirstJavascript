@@ -28,6 +28,25 @@
                 // Listen for typing in both inputs
                 document.getElementById("num1").addEventListener("input", updateSum)
                 document.getElementById("num2").addEventListener("input", updateSum)
+        
+        function grade() {
+            let analysis=document.getElementById("analysis").value;
+            let design=document.getElementById("design").value;
+            let implementation=document.getElementById("implementation").value;
+            let evaluation=document.getElementById("evaluation").value;
+            let total=Number(analysis)+Number(design)+Number(implementation)+Number(evaluation);
+            if (total >= 80) grade="A*";
+            else if (total >= 67) grade="A";
+            else if (total >= 54) grade="B";
+            else if (total >= 41) grade="C";
+            else if (total >= 31) grade="D";
+            else if (total >= 22) grade="E";
+            else if (total >= 13) grade="F";
+            else if (total >= 4) grade="G";
+            else if (total >= 0) grade="U";
+            document.getElementById("totalMarks").innerHTML="Total marks are ".concat(total);
+            document.getElementById("Grade").innerHTML="Your grade is ".concat(grade);
+    }
         </script>
     </head>
     <body>
@@ -42,5 +61,12 @@
         <div id="addthingy"></div>
 
         <h1>Portfolio</h1>
+        <input type="number" id="analysis"></input>
+        <input type="number" id="design"></input>
+        <input type="number" id="implementation"></input>
+        <input type="number" id="evaluation"></input>
+        <button type="button" onclick="grade()">Calculate grades</button>
+        <div id="totalMarks"></div>
+        <div id="Grade"></div>
     </body>
 </html>
