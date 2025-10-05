@@ -47,6 +47,13 @@
             document.getElementById("totalMarks").innerHTML="Total marks are ".concat(total);
             document.getElementById("Grade").innerHTML="Your grade is ".concat(grade);
     }
+
+        function showNum(){
+            let n1 = document.getElementById("numNum").value;
+            for (let i = 0; i < n1; i++) {
+                <input type="number" id="Num1"></input>
+            }
+        }
         </script>
     </head>
     <body>
@@ -68,5 +75,13 @@
         <button type="button" onclick="grade()">Calculate grades</button>
         <div id="totalMarks"></div>
         <div id="Grade"></div>
+
+        <h1>Average numbers</h1>
+        <h3>Enter how many numbers are to be averaged.</h3>
+        <input type="number" id="numNum"></input><br>
+        <button type="button" onclick="showNum()">Show numbers.</button>
+        for (let i = 0; i < numNum; i++) {
+            <input type="number" id="Num1"></input>
+        }
     </body>
 </html>
