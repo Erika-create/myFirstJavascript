@@ -48,10 +48,40 @@
             document.getElementById("Grade").innerHTML="Your grade is ".concat(grade);
     }
 
-        function showNum(){
-            let n1 = document.getElementById("numNum").value;
-            for (let i = 0; i < n1; i++) {
-                <input type="number" id="Num1"></input>
+        function avgNum(){
+            let count = parseInt(prompt("Enter the total numbers that you want to average: "));
+            let total = 0
+            // let n1 = document.getElementById("numNum").value;
+            for (let i = 0; i < count; i++) {
+                let num = parseFloat(prompt("Enter a number: "))
+                total = total + num
+            let average = total / count;
+            document.getElementById("total").innerHTML=total, average;
+            document.getElementById("average").innerHTML=average;
+            }
+        }
+
+        //function avgNum(){
+            //let n1=document.getElementById("Num1").value;
+            //let n2=document.getElementById("Num2").value;
+            //for (let i = 0; i < n1; i++) {
+            //    let total = total + Number(n1)
+            //}
+            //document.getElementById("total").innerHTML=total;
+        //}
+
+        function compoundInterest(){
+            let balance = document.getElementById("balance").value;
+            let interestRate = document.getElementById("interestRate").value;
+            let desired = document.getElementById("desired").value;
+            let year = 0
+            newRate = balance / 100 + 1
+            //let finalBalance = balance
+            while (balance < desired) {
+                balance += balance * newRate
+                year++;
+            document.getElementById("year").innerHTML=year;
+            document.getElementById("final").innerHTML=balance;
             }
         }
         </script>
@@ -77,11 +107,19 @@
         <div id="Grade"></div>
 
         <h1>Average numbers</h1>
-        <h3>Enter how many numbers are to be averaged.</h3>
-        <input type="number" id="numNum"></input><br>
-        <button type="button" onclick="showNum()">Show numbers.</button>
-        for (let i = 0; i < numNum; i++) {
-            <input type="number" id="Num1"></input>
-        }
+        <button type="button" onclick="avgNum()">Average numbers.</button>
+        <div id="total"></div>
+        <div id="average"></div>
+
+        <h1>Compound Interest</h1><br>
+        <p>Enter your current balance.</p>
+        <input type="number" id="balance"></input><br>
+        <p>Enter the interest rate in percentage.</p>
+        <input type="number" id="interestRate"></input><br>
+        <p>Enter your desired balance.</p>
+        <input type="number" id="desired"></input><br>
+        <button type="button" onclick="compoundInterest()">Compound Interest.</button>
+        <div id="year"></div>
+        <div id="final"></div>
     </body>
 </html>
