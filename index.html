@@ -75,14 +75,20 @@
             let interestRate = document.getElementById("interestRate").value;
             let desired = document.getElementById("desired").value;
             let year = 0
-            newRate = balance / 100 + 1
+            stringy = ""
             //let finalBalance = balance
             while (balance < desired) {
-                balance += balance * newRate
+                balance = balance + balance * interestRate/100
                 year++;
-            document.getElementById("year").innerHTML=year;
-            document.getElementById("final").innerHTML=balance;
+                stringy += "Year" + year + ": " + balance.toFixed(2) + "<br<";
+                document.getElementById("output").innerHTML=stringy;
             }
+        }
+
+        function Roll(){
+            words=["one", "two", "three", "four", "five", "six"];
+            let d1=Math.floor(Math.random()*6);
+            let diceroll = words[d1]
         }
         </script>
     </head>
@@ -119,7 +125,10 @@
         <p>Enter your desired balance.</p>
         <input type="number" id="desired"></input><br>
         <button type="button" onclick="compoundInterest()">Compound Interest.</button>
-        <div id="year"></div>
-        <div id="final"></div>
+        <div id="output"></div>
+
+        <h1>Dice</h1>
+        <button type = "button" onclick="Roll()">ROll dice</button>
+        <p id="diceroll"></p>
     </body>
 </html>
